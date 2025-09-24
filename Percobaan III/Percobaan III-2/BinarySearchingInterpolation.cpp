@@ -12,22 +12,22 @@ cout << "Masukkan nilai yang ingin dicari" << endl;
 cin >> target;
 
 while(target > data[low] && target <= data[high]) {
-    pos = (target-data[low])/(data[high]-data[low]) * (high-low) + low; cout << pos << endl;
-    if(target > data[pos]) {
-        low = pos+1;
+        pos = (target-data[low])/(data[high]-data[low]) * (high-low) + low; cout << pos << endl;
+        if(target > data[pos]) {
+            low = pos+1;
+        }
+        else if (target < data[pos]) {
+            high = pos-1;
+        }
+        else {
+        low = pos;
+        }
     }
-    else if (target < data[pos]) {
-        high = pos-1;
+
+    if(target == data[low]) {
+        cout << "Ketemu pada pencarian ke " << low+1 << endl;
     }
     else {
-    low = pos;
+        cout << "Tidak ketemu" << endl; return 0;
     }
-}
-
-if(target == data[low]) {
-    cout << "Ketemu pada pencarian ke " << low+1 << endl;
-}
-else {
-    cout << "Tidak ketemu" << endl; return 0;
-}
 }
